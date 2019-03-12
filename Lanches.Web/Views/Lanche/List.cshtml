@@ -1,0 +1,15 @@
+@model LancheListViewModel
+
+@{
+    ViewData["Title"] = "Lista de Lanches";
+}    
+
+<div>
+    <h2>@Model.CategoriaAtual</h2>
+</div>
+<div class="row">
+@foreach (var item in Model.Lanches)
+{
+    @Html.Partial("_LanchesResumo", item)
+}
+</div>

@@ -1,0 +1,55 @@
+@model CarrinhoCompraViewModel
+
+<div class="row checkoutForm">
+    <h2>Seu carrinho de compras</h2>
+    <h4>Aqui estão os seus pedidos</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Quantidade</th>
+                <th>Lanche</th>
+                <th class="text-right">Preço</th>
+                <th class="text-right">Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItens)
+            {
+                <tr>
+                    <td class="text-center">@item.Quantidade</td>
+                    <td class="text-left">@item.Lanche.Nome</td>
+                    <td class="text-right">@item.Lanche.Preco.ToString("c")</td>
+                    <td class="text-right">
+                        @((item.Quantidade * item.Lanche.Preco).ToString("c"))
+                    </td>
+                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="CarrinhoCompra" asp-action="Remover" asp-route-lancheId="@item.Lanche.LancheId"></a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.CarrinhoCompraTotal.ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="text-right">
+        <div class="btn-group ">
+            <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
+            <a class="btn-group">
+                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Adicionar mais lanches
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="Lanche Normal">Lanche Normal</a></li>
+                    <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="Lanche Natural">Lanche Natural</a></li>
+                    <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="">Todos os Lanches</a></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+</div>

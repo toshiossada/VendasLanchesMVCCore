@@ -1,0 +1,78 @@
+﻿@model Lanches.Web.Models.Pedido
+<br/>
+<h2>Detalhes do Pedido</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoEnviado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PedidoEnviado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoEntregue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PedidoEntregue)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PedidoId">Editar</a> |
+    <a asp-action="Index">Retornar para a Lista</a>
+</div>

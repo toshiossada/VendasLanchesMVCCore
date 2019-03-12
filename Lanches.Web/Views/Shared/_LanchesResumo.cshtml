@@ -1,0 +1,21 @@
+@model Lanche
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Model.ImgUrl" class="img-rounded" alt="@Model.Nome" width="225" height="225" />
+        <div class="caption">
+            <h3 class="pull-right">@Model.Preco.ToString("c")</h3>
+            <h3>
+                <a asp-controller="Lanche" asp-action="Details" asp-route-lancheId="@Model.LancheId">@Model.Nome</a>
+            </h3>
+            <p>@Model.DescricaoCurta</p>
+        </div>
+        <div class="addToCart text-right">
+            <p class="button ">
+                <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="Adicionar" asp-route-lancheId="@Model.LancheId">
+                    Incluir no Carrinho
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
